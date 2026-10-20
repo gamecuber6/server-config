@@ -6,14 +6,14 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-echo "SYSMAINTENANCE: SERVER EDITION ver.1-proper"
+echo "SYSMAINTENANCE: SERVER EDITION ver.1.01"
 
 echo "step 1: apt updating and cleaning"
-apt-get update -y
-apt-get upgrade -y
-apt-get autoremove -y
-apt-get clean -y
-apt-get autoclean -y
+sudo -n DEBIAN_FRONTEND=noninteractive apt-get update -y
+sudo -n DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+sudo -n DEBIAN_FRONTEND=noninteractive apt-get autoremove -y
+sudo -n DEBIAN_FRONTEND=noninteractive apt-get clean -y
+sudo -n DEBIAN_FRONTEND=noninteractive apt-get autoclean -y
 
 echo "step 2: quick and easy temp file cleaning"
 rm -rf /tmp/*
